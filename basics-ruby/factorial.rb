@@ -7,7 +7,6 @@ puts "Enter the number:"
 n = gets.to_i
 puts "The factorial is:"
 puts fact(n)
-
 rescue => error
 puts error
 end 
