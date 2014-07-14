@@ -1,0 +1,28 @@
+<%= form_for(@wish) do |f| %>
+  <% if @wish.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@wish.errors.count, "error") %> prohibited this wish from being saved:</h2>
+
+      <ul>
+      <% @wish.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :user %><br>
+    <%= f.select :user_id, options_from_collection_for_select(User.all, 'id', 'name') %>
+  </div>
+  <div class="field">
+    <%= f.label :done %><br>
+    <%= f.text_area :done %>
+  </div>
+  <div class="field">
+    <%= f.label :todo %><br>
+    <%= f.text_field :todo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
