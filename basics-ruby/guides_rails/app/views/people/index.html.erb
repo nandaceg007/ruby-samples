@@ -4,6 +4,8 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Kind</th>
+      <th>Street</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +14,10 @@
     <% @people.each do |person| %>
       <tr>
         <td><%= person.name %></td>
+        <% person.addresses.each do |address| %>
+          <td><%= address.kind %></td>
+          <td><%= address.street %></td>
+        <% end %>  
         <td><%= link_to 'Show', person %></td>
         <td><%= link_to 'Edit', edit_person_path(person) %></td>
         <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
